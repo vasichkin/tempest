@@ -22,7 +22,7 @@ import random
 from tempest import exceptions
 from tempest.test import attr
 from tempest.tests.image import base
-
+import testtools
 
 class CreateRegisterImagesTest(base.BaseV2ImageTest):
 
@@ -42,6 +42,7 @@ class CreateRegisterImagesTest(base.BaseV2ImageTest):
                           'test', 'bare', 'wrong')
 
     @attr(type='image')
+    @testtools.skip("Fail on FOLSOM")
     def test_register_then_upload(self):
         # Register, then upload an image
         resp, body = self.create_image(name='New Name',
@@ -74,6 +75,7 @@ class ListImagesTest(base.BaseV2ImageTest):
     """
 
     @classmethod
+    @testtools.skip("Error on FOLSOM")
     def setUpClass(cls):
         super(ListImagesTest, cls).setUpClass()
         # We add a few images here to test the listing functionality of

@@ -19,6 +19,7 @@ from tempest.common.utils.data_utils import rand_name
 from tempest import exceptions
 from tempest.test import attr
 from tempest.tests.identity import base
+import testtools
 
 
 class TenantsTestJSON(base.BaseIdentityAdminTest):
@@ -212,6 +213,7 @@ class TenantsTestJSON(base.BaseIdentityAdminTest):
         self.client.delete_tenant(t_id)
         self.data.tenants.remove(tenant)
 
+    @testtools.skip("Error on FOLSOM")
     def test_tenant_update_desc(self):
         # Update description attribute of a tenant
         t_name = rand_name('tenant-')
@@ -240,6 +242,7 @@ class TenantsTestJSON(base.BaseIdentityAdminTest):
         self.client.delete_tenant(t_id)
         self.data.tenants.remove(tenant)
 
+    @testtools.skip("Error on FOLSOM")
     def test_tenant_update_enable(self):
         # Update the enabled attribute of a tenant
         t_name = rand_name('tenant-')

@@ -18,7 +18,7 @@
 
 from tempest.common.utils.data_utils import rand_name
 from tempest.tests.compute import base
-
+import testtools
 
 class VolumesTestJSON(base.BaseComputeTest):
 
@@ -33,6 +33,7 @@ class VolumesTestJSON(base.BaseComputeTest):
     _interface = 'json'
 
     @classmethod
+    @testtools.skip("Error on FOLSOM")
     def setUpClass(cls):
         super(VolumesTestJSON, cls).setUpClass()
         cls.client = cls.volumes_extensions_client

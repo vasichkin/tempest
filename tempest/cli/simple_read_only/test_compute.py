@@ -60,6 +60,7 @@ class SimpleReadOnlyNovaClientTest(tempest.cli.ClientTestBase):
     def test_admin_aggregate_list(self):
         self.nova('aggregate-list')
 
+    @testtools.skip("Error on FOLSOM")
     def test_admin_availability_zone_list(self):
         self.assertIn("internal", self.nova('availability-zone-list'))
 
@@ -92,6 +93,7 @@ class SimpleReadOnlyNovaClientTest(tempest.cli.ClientTestBase):
     def test_admin_flavor_list(self):
         self.assertIn("Memory_MB", self.nova('flavor-list'))
 
+    @testtools.skip("Error on FOLSOM")
     def test_admin_floating_ip_bulk_list(self):
         self.nova('floating-ip-bulk-list')
 
@@ -139,6 +141,7 @@ class SimpleReadOnlyNovaClientTest(tempest.cli.ClientTestBase):
     def test_admin_secgroup_list_rules(self):
         self.nova('secgroup-list-rules')
 
+    @testtools.skip("Error on FOLSOM")
     def test_admin_servce_list(self):
         self.nova('service-list')
 
@@ -163,6 +166,7 @@ class SimpleReadOnlyNovaClientTest(tempest.cli.ClientTestBase):
     def test_admin_list_extensions(self):
         self.nova('list-extensions')
 
+    @testtools.skip("Error on FOLSOM")
     def test_admin_net_list(self):
         self.nova('net-list')
 

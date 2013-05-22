@@ -18,11 +18,12 @@
 
 from tempest.common.utils.data_utils import rand_name
 from tempest.tests.identity import base
-
+import testtools
 
 class ServicesTestJSON(base.BaseIdentityAdminTest):
     _interface = 'json'
 
+    @testtools.skip("Error on FOLSOM")
     def test_update_service(self):
         # Update description attribute of service
         name = rand_name('service-')

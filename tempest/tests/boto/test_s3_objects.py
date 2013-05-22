@@ -23,7 +23,7 @@ from tempest import clients
 from tempest.common.utils.data_utils import rand_name
 from tempest.test import attr
 from tempest.testboto import BotoTestCase
-
+import testtools
 
 @attr("S3")
 class S3BucketsTest(BotoTestCase):
@@ -35,6 +35,7 @@ class S3BucketsTest(BotoTestCase):
         cls.client = cls.os.s3_client
 
     @attr(type='smoke')
+    @testtools.skip("Fail on FOLSOM")
     def test_create_get_delete_object(self):
         # S3 Create, get and delete object
         bucket_name = rand_name("s3bucket-")

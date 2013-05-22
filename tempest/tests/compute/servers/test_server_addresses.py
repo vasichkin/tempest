@@ -18,7 +18,7 @@
 from tempest import exceptions
 from tempest.test import attr
 from tempest.tests.compute import base
-
+import testtools
 
 class ServerAddressesTest(base.BaseComputeTest):
     _interface = 'json'

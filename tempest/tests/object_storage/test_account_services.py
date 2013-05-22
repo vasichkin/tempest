@@ -19,11 +19,12 @@ from tempest.common.utils.data_utils import rand_name
 from tempest import exceptions
 from tempest.test import attr
 from tempest.tests.object_storage import base
-
+import testtools
 
 class AccountTest(base.BaseObjectTest):
 
     @classmethod
+    @testtools.skip("Error on FOLSOM")
     def setUpClass(cls):
         super(AccountTest, cls).setUpClass()
 

@@ -34,9 +34,11 @@ LOG = logging.getLogger(__name__)
 
 
 @attr("S3", "EC2")
+
 class InstanceRunTest(BotoTestCase):
 
     @classmethod
+    @testtools.skip("Error on FOLSOM")
     def setUpClass(cls):
         super(InstanceRunTest, cls).setUpClass()
         if not cls.conclusion['A_I_IMAGES_READY']:

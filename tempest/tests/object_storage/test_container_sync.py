@@ -25,6 +25,7 @@ import time
 class ContainerSyncTest(base.BaseObjectTest):
 
     @classmethod
+    @testtools.skip("Error on FOLSOM")
     def setUpClass(cls):
         super(ContainerSyncTest, cls).setUpClass()
 

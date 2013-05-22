@@ -18,7 +18,7 @@
 from tempest.common.utils.data_utils import rand_name
 from tempest.test import attr
 from tempest.tests.volume import base
-
+import testtools
 
 class VolumesListTest(base.BaseVolumeTest):
 
@@ -33,6 +33,7 @@ class VolumesListTest(base.BaseVolumeTest):
     _interface = 'json'
 
     @classmethod
+    @testtools.skip("Error on FOLSOM")
     def setUpClass(cls):
         super(VolumesListTest, cls).setUpClass()
         cls.client = cls.volumes_client

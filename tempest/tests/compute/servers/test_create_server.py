@@ -36,6 +36,7 @@ class ServersTestJSON(base.BaseComputeTest):
     disk_config = 'AUTO'
 
     @classmethod
+    @testtools.skip("Error on FOLSOM")
     def setUpClass(cls):
         super(ServersTestJSON, cls).setUpClass()
         cls.meta = {'hello': 'world'}

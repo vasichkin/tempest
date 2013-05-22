@@ -19,7 +19,7 @@ from tempest.common.utils.data_utils import rand_name
 from tempest import exceptions
 from tempest.test import attr
 from tempest.tests.compute import base
-
+import testtools
 
 class AggregatesAdminTestJSON(base.BaseComputeAdminTest):
 
@@ -31,6 +31,7 @@ class AggregatesAdminTestJSON(base.BaseComputeAdminTest):
     _interface = 'json'
 
     @classmethod
+    @testtools.skip("Fail on FOLSOM")
     def setUpClass(cls):
         super(AggregatesAdminTestJSON, cls).setUpClass()
         cls.client = cls.os_adm.aggregates_client

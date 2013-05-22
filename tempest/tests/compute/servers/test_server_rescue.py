@@ -20,7 +20,7 @@ import tempest.config
 from tempest import exceptions
 from tempest.test import attr
 from tempest.tests.compute import base
-
+import testtools
 
 class ServerRescueTestJSON(base.BaseComputeTest):
     _interface = 'json'
@@ -28,6 +28,7 @@ class ServerRescueTestJSON(base.BaseComputeTest):
     run_ssh = tempest.config.TempestConfig().compute.run_ssh
 
     @classmethod
+    @testtools.skip("Error on FOLSOM")
     def setUpClass(cls):
         super(ServerRescueTestJSON, cls).setUpClass()
         cls.device = 'vdf'

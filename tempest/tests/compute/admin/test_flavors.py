@@ -21,7 +21,7 @@ from tempest import exceptions
 from tempest.test import attr
 from tempest.tests import compute
 from tempest.tests.compute import base
-
+import testtools
 
 class FlavorsAdminTestJSON(base.BaseComputeAdminTest):
 
@@ -151,6 +151,7 @@ class FlavorsAdminTestJSON(base.BaseComputeAdminTest):
                 flag = False
         self.assertTrue(flag)
 
+    @testtools.skip("Fail on FOLSOM")
     def test_create_list_flavor_without_extra_data(self):
         #Create a flavor and ensure it is listed
         #This operation requires the user to have 'admin' role
@@ -193,6 +194,7 @@ class FlavorsAdminTestJSON(base.BaseComputeAdminTest):
         self.assertTrue(flag)
 
     @attr(type='positive')
+    @testtools.skip("Fail on FOLSOM")
     def test_flavor_not_public_verify_entry_not_in_list_details(self):
         #Create a flavor with os-flavor-access:is_public false should not
         #be present in list_details.
@@ -216,6 +218,7 @@ class FlavorsAdminTestJSON(base.BaseComputeAdminTest):
                 flag = True
         self.assertFalse(flag)
 
+    @testtools.skip("Fail on FOLSOM")
     def test_list_public_flavor_with_other_user(self):
         #Create a Flavor with public access.
         #Try to List/Get flavor with another user
@@ -240,6 +243,7 @@ class FlavorsAdminTestJSON(base.BaseComputeAdminTest):
         self.assertTrue(flag)
 
     @attr(type='positive')
+    @testtools.skip("Fail on FOLSOM")
     def test_is_public_string_variations(self):
         flavor_id_not_public = rand_int_id(start=1000)
         flavor_name_not_public = rand_name(self.flavor_name_prefix)

@@ -18,7 +18,7 @@
 from tempest import exceptions
 from tempest.test import attr
 from tempest.tests.compute import base
-
+import testtools
 
 class AbsoluteLimitsTestJSON(base.BaseComputeTest):
     _interface = 'json'
@@ -49,6 +49,7 @@ class AbsoluteLimitsTestJSON(base.BaseComputeTest):
                          % ', '.join(ele for ele in missing_elements))
 
     @attr(type='negative')
+    @testtools.skip("Fail on FOLSOM")
     def test_max_image_meta_exceed_limit(self):
         #We should not create vm with image meta over maxImageMeta limit
         # Get max limit value

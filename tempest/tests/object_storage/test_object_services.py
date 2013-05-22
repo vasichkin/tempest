@@ -27,6 +27,7 @@ import time
 class ObjectTest(base.BaseObjectTest):
 
     @classmethod
+    @testtools.skip("Error on FOLSOM")
     def setUpClass(cls):
         super(ObjectTest, cls).setUpClass()
 

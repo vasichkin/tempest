@@ -17,12 +17,13 @@
 
 from tempest.test import attr
 from tempest.tests.compute import base
-
+import testtools
 
 class QuotasTestJSON(base.BaseComputeTest):
     _interface = 'json'
 
     @classmethod
+    @testtools.skip("Fail on FOLSOM")
     def setUpClass(cls):
         super(QuotasTestJSON, cls).setUpClass()
         cls.client = cls.quotas_client

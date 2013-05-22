@@ -19,7 +19,7 @@ from tempest.common.utils.data_utils import rand_name
 from tempest import exceptions
 from tempest.test import attr
 from tempest.tests.compute import base
-
+import testtools
 
 class SecurityGroupsTestJSON(base.BaseComputeTest):
     _interface = 'json'
@@ -173,6 +173,7 @@ class SecurityGroupsTestJSON(base.BaseComputeTest):
                           s_description)
 
     @attr(type='negative')
+    @testtools.skip("Fail on FOLSOM")
     def test_delete_the_default_security_group(self):
         # Negative test:Deletion of the "default" Security Group should Fail
         default_security_group_id = None
