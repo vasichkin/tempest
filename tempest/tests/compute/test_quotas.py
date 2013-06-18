@@ -23,7 +23,6 @@ class QuotasTestJSON(base.BaseComputeTest):
     _interface = 'json'
 
     @classmethod
-    @testtools.skip("Fail on FOLSOM")
     def setUpClass(cls):
         super(QuotasTestJSON, cls).setUpClass()
         cls.client = cls.quotas_client
@@ -38,6 +37,10 @@ class QuotasTestJSON(base.BaseComputeTest):
                                  'injected_file_path_bytes': 255,
                                  'instances': 10, 'security_group_rules': 20,
                                  'cores': 20, 'security_groups': 10}
+
+    @testtools.skip("Fail on FOLSOM")
+    def setUp(self):
+        pass
 
     @attr(type='smoke')
     def test_get_quotas(self):

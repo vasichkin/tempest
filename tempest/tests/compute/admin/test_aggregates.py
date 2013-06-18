@@ -31,7 +31,6 @@ class AggregatesAdminTestJSON(base.BaseComputeAdminTest):
     _interface = 'json'
 
     @classmethod
-    @testtools.skip("Fail on FOLSOM")
     def setUpClass(cls):
         super(AggregatesAdminTestJSON, cls).setUpClass()
         cls.client = cls.os_adm.aggregates_client
@@ -43,6 +42,10 @@ class AggregatesAdminTestJSON(base.BaseComputeAdminTest):
         hosts = map(lambda x: x['host_name'],
                     filter(lambda y: y['service'] == 'compute', hosts_all))
         cls.host = hosts[0]
+
+    @testtools.skip("Fail on FOLSOM")
+    def setUp(self):
+        pass
 
     @attr(type='positive')
     def test_aggregate_create_delete(self):

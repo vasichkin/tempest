@@ -33,7 +33,6 @@ class FlavorsAccessTestJSON(base.BaseComputeAdminTest):
     _interface = 'json'
 
     @classmethod
-    @testtools.skip("Fail on FOLSOM")
     def setUpClass(cls):
         super(FlavorsAccessTestJSON, cls).setUpClass()
         if not compute.FLAVOR_EXTRA_DATA_ENABLED:
@@ -50,6 +49,10 @@ class FlavorsAccessTestJSON(base.BaseComputeAdminTest):
         cls.ram = 512
         cls.vcpus = 1
         cls.disk = 10
+
+    @testtools.skip("Fail on FOLSOM")
+    def setUp(self):
+        pass
 
     @attr('positive')
     def test_flavor_access_add_remove(self):

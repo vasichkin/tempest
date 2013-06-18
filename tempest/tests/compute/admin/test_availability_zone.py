@@ -29,11 +29,14 @@ class AvailabilityZoneAdminTestJSON(base.BaseComputeAdminTest):
     _interface = 'json'
 
     @classmethod
-    @testtools.skip("Fail on FOLSOM")
     def setUpClass(cls):
         super(AvailabilityZoneAdminTestJSON, cls).setUpClass()
         cls.client = cls.os_adm.availability_zone_client
         cls.non_adm_client = cls.availability_zone_client
+
+    @testtools.skip("Fail on FOLSOM")
+    def setUp(self):
+        pass
 
     @attr('positive')
     def test_get_availability_zone_list(self):

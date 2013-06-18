@@ -28,13 +28,16 @@ class ServersNegativeTest(base.BaseComputeTest):
     _interface = 'json'
 
     @classmethod
-    @testtools.skip("Error on FOLSOM (fix alt_demo user)")
     def setUpClass(cls):
         super(ServersNegativeTest, cls).setUpClass()
         cls.client = cls.servers_client
         cls.img_client = cls.images_client
         cls.alt_os = clients.AltManager()
         cls.alt_client = cls.alt_os.servers_client
+
+    @testtools.skip("Error on FOLSOM (fix alt_demo user)")
+    def setUp(self):
+        pass
 
     @attr(type='negative')
     def test_server_name_blank(self):

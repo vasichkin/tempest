@@ -32,7 +32,7 @@ cli_opts = [
                 default=True,
                 help="enable cli tests"),
     cfg.StrOpt('cli_dir',
-               default='/usr/local/bin/',
+               default='/usr/bin/',
                help="directory where python client binaries are located"),
 ]
 

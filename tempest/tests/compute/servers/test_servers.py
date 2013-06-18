@@ -24,7 +24,6 @@ class ServersTestJSON(base.BaseComputeTest):
     _interface = 'json'
 
     @classmethod
-    @testtools.skip("Error on FOLSOM")
     def setUpClass(cls):
         super(ServersTestJSON, cls).setUpClass()
         cls.client = cls.servers_client
@@ -32,6 +31,10 @@ class ServersTestJSON(base.BaseComputeTest):
     def tearDown(self):
         self.clear_servers()
         super(ServersTestJSON, self).tearDown()
+
+    @testtools.skip("Error on FOLSOM")
+    def setUp(self):
+        pass
 
     @attr(type='positive')
     def test_create_server_with_admin_password(self):

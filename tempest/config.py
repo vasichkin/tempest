@@ -226,7 +226,7 @@ WhiteboxGroup = [
                default='/etc/nova/nova.conf',
                help="Path of nova configuration file"),
     cfg.StrOpt('bin_dir',
-               default="/usr/local/bin/",
+               default="/usr/bin/",
                help="Directory containing nova binaries such as nova-manage"),
 ]
 
