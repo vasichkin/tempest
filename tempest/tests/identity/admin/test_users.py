@@ -17,6 +17,7 @@
 
 from nose.plugins.attrib import attr
 import unittest2 as unittest
+from tempest.tests import utils
 
 from tempest import exceptions
 from tempest.common.utils.data_utils import rand_name
@@ -336,11 +337,13 @@ class UsersTestBase(object):
 class UsersTestJSON(base.BaseIdentityAdminTestJSON,
                     UsersTestBase):
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         super(UsersTestJSON, cls).setUpClass()
 
 
 class UsersTestXML(base.BaseIdentityAdminTestXML, UsersTestBase):
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         super(UsersTestXML, cls).setUpClass()

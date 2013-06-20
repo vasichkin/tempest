@@ -22,7 +22,7 @@ from tempest import exceptions
 from tempest.common.utils.data_utils import rand_name
 from tempest.tests.compute.base import BaseComputeTestJSON
 from tempest.tests.compute.base import BaseComputeTestXML
-
+from tempest.tests import utils
 
 class KeyPairsTestBase(object):
 
@@ -223,6 +223,7 @@ class KeyPairsTestBase(object):
 
 class KeyPairsTestXML(BaseComputeTestXML, KeyPairsTestBase):
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         super(KeyPairsTestXML, cls).setUpClass()
         cls.client = cls.keypairs_client
@@ -230,6 +231,7 @@ class KeyPairsTestXML(BaseComputeTestXML, KeyPairsTestBase):
 
 class KeyPairsTestJSON(BaseComputeTestJSON, KeyPairsTestBase):
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         super(KeyPairsTestJSON, cls).setUpClass()
         cls.client = cls.keypairs_client

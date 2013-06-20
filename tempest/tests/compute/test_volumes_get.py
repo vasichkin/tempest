@@ -16,6 +16,7 @@
 #    under the License.
 
 from nose.plugins.attrib import attr
+from tempest.tests import utils
 
 from tempest.common.utils.data_utils import rand_name
 from tempest.tests.compute import base
@@ -95,6 +96,7 @@ class VolumesGetTestBase(object):
 
 class VolumesGetTestXML(base.BaseComputeTestXML, VolumesGetTestBase):
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         cls._interface = "xml"
         super(VolumesGetTestXML, cls).setUpClass()
@@ -103,6 +105,7 @@ class VolumesGetTestXML(base.BaseComputeTestXML, VolumesGetTestBase):
 
 class VolumesGetTestJSON(base.BaseComputeTestJSON, VolumesGetTestBase):
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         cls._interface = "json"
         super(VolumesGetTestJSON, cls).setUpClass()

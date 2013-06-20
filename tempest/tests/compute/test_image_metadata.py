@@ -20,11 +20,13 @@ from nose.plugins.attrib import attr
 from tempest.common.utils.data_utils import rand_name
 from tempest import exceptions
 from tempest.tests.compute.base import BaseComputeTest
+from tempest.tests import utils
 
 
 class ImagesMetadataTest(BaseComputeTest):
 
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         super(ImagesMetadataTest, cls).setUpClass()
         cls.servers_client = cls.servers_client

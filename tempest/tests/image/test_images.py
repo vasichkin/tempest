@@ -19,6 +19,7 @@ import cStringIO as StringIO
 import random
 
 import unittest2 as unittest
+from tempest.tests import utils
 
 from nose.plugins.attrib import attr
 from nose.plugins.skip import SkipTest
@@ -40,6 +41,7 @@ class CreateRegisterImagesTest(unittest.TestCase):
     """
 
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         if not GLANCE_INSTALLED:
             raise SkipTest('Glance not installed')
@@ -135,6 +137,7 @@ class ListImagesTest(unittest.TestCase):
     """
 
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         if not GLANCE_INSTALLED:
             raise SkipTest('Glance not installed')

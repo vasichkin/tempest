@@ -16,6 +16,7 @@
 #    under the License.
 
 from nose.plugins.attrib import attr
+from tempest.tests import utils
 
 from tempest import exceptions
 from tempest.common.utils.data_utils import rand_name
@@ -25,6 +26,7 @@ from tempest.tests.compute import base
 class SecurityGroupRulesTest(object):
 
     @staticmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         cls.client = cls.security_groups_client
 

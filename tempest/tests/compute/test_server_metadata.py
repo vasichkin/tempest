@@ -16,6 +16,7 @@
 #    under the License.
 
 from nose.plugins.attrib import attr
+from tempest.tests import utils
 
 from tempest.common.utils.data_utils import rand_name
 from tempest.tests.compute.base import BaseComputeTest
@@ -24,6 +25,7 @@ from tempest.tests.compute.base import BaseComputeTest
 class ServerMetadataTest(BaseComputeTest):
 
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         super(ServerMetadataTest, cls).setUpClass()
         cls.client = cls.servers_client

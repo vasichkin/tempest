@@ -71,3 +71,18 @@ class skip_unless_attr(object):
         _skipper.__name__ = func.__name__
         _skipper.__doc__ = func.__doc__
         return _skipper
+
+class skip(object):
+    """Decorator that skips a test."""
+    def __init__(self, msg):
+        self.message = msg
+
+    def __call__(self, func):
+        def _skipper(*args, **kw):
+            """Wrapped skipper function."""
+            raise nose.SkipTest(self.message)
+            func(*args, **kw)
+        _skipper.__name__ = func.__name__
+        _skipper.__doc__ = func.__doc__
+        return _skipper
+

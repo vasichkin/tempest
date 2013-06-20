@@ -32,7 +32,7 @@ class AuthorizationTest(BaseComputeTest):
     def setUpClass(cls):
         if not compute.MULTI_USER:
             msg = "Need >1 user"
-            raise nose.SkipTest(msg)
+            raise unittest.SkipTest(msg)
 
         super(AuthorizationTest, cls).setUpClass()
 

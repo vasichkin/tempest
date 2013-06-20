@@ -16,6 +16,7 @@
 #    under the License.
 
 from nose.plugins.attrib import attr
+from tempest.tests import utils
 
 from tempest.common.utils.data_utils import rand_name
 from tempest.tests.compute import base
@@ -70,6 +71,7 @@ class ServersTestBase(object):
                     self.client.delete_server(server_id)
 
     @attr(type='positive')
+    @utils.skip('Not supported in Y! environment')
     def test_create_specify_keypair(self):
         """Specify a keypair while creating a server"""
 

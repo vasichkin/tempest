@@ -18,6 +18,7 @@
 import nose
 from nose.plugins.attrib import attr
 import unittest2 as unittest
+from tempest.tests import utils
 
 from tempest import exceptions
 from tempest.common.utils.data_utils import rand_name
@@ -74,6 +75,7 @@ class TestServerDiskConfig(BaseComputeTest):
         resp, body = self.client.delete_server(server['id'])
 
     @attr(type='positive')
+    @utils.skip('Not supported in Y! environment')
     def test_rebuild_server_with_manual_disk_config(self):
         """A server should be rebuilt using the manual disk config option"""
         name = rand_name('server')
@@ -104,6 +106,7 @@ class TestServerDiskConfig(BaseComputeTest):
         resp, body = self.client.delete_server(server['id'])
 
     @attr(type='positive')
+    @utils.skip('Not supported in Y! environment')
     def test_rebuild_server_with_auto_disk_config(self):
         """A server should be rebuilt using the auto disk config option"""
         name = rand_name('server')

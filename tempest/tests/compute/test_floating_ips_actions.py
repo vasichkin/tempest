@@ -22,6 +22,7 @@ from tempest import openstack
 from tempest import exceptions
 from tempest.common.utils.data_utils import rand_name
 from tempest.tests.compute import base
+from tempest.tests import utils
 
 
 class FloatingIPsTestBase(object):
@@ -29,7 +30,9 @@ class FloatingIPsTestBase(object):
     floating_ip = None
 
     @staticmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
+
         cls.client = cls.floating_ips_client
         cls.servers_client = cls.servers_client
 

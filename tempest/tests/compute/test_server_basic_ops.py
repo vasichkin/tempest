@@ -16,6 +16,7 @@
 #    under the License.
 
 import logging
+from tempest.tests import utils
 
 from tempest.common.utils.data_utils import rand_name
 from tempest import smoke
@@ -24,6 +25,10 @@ LOG = logging.getLogger(__name__)
 
 
 class TestServerBasicOps(smoke.DefaultClientSmokeTest):
+
+    @utils.skip('Not supported in Y! environment')
+    def setUp(self):
+        pass
 
     """
     This smoke test case follows this basic set of operations:

@@ -26,11 +26,12 @@ from tempest import openstack
 from tempest.common.utils.data_utils import rand_name
 from tempest.tests.compute.base import BaseComputeTest
 from tempest.tests import compute
-
+from tempest.tests import utils
 
 class ListServersNegativeTest(BaseComputeTest):
 
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         super(ListServersNegativeTest, cls).setUpClass()
         cls.client = cls.servers_client

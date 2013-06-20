@@ -16,6 +16,7 @@
 #    under the License.
 
 from nose.plugins.attrib import attr
+from tempest.tests import utils
 
 from tempest import exceptions
 from tempest.common.utils.data_utils import rand_name, parse_image_id
@@ -25,6 +26,7 @@ from tempest.tests.compute.base import BaseComputeTest
 class ListImageFiltersTest(BaseComputeTest):
 
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         super(ListImageFiltersTest, cls).setUpClass()
         cls.client = cls.images_client

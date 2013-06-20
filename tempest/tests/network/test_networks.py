@@ -16,6 +16,7 @@
 #    under the License.
 
 from nose.plugins.attrib import attr
+from tempest.tests import utils
 
 from tempest.common.utils.data_utils import rand_name
 from tempest.tests.network import base
@@ -24,6 +25,7 @@ from tempest.tests.network import base
 class NetworksTest(base.BaseNetworkTest):
 
     @classmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         super(NetworksTest, cls).setUpClass()
         cls.network = cls.create_network()

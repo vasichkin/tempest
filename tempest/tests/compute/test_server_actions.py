@@ -20,6 +20,7 @@ import time
 
 from nose.plugins.attrib import attr
 import unittest2 as unittest
+from tempest.tests import utils
 
 import tempest.config
 from tempest import exceptions
@@ -106,6 +107,7 @@ class ServerActionsTestBase(object):
             self.assertGreater(new_boot_time, boot_time)
 
     @attr(type='smoke')
+    @utils.skip('Not supported in Y! environment')
     def test_rebuild_server(self):
         """ The server should be rebuilt using the provided image and data """
         meta = {'rebuild': 'server'}

@@ -17,6 +17,7 @@
 
 from nose.plugins.attrib import attr
 import unittest2 as unittest
+from tempest.tests import utils
 
 from tempest import exceptions
 from tempest.common.utils.data_utils import rand_name
@@ -26,6 +27,7 @@ from tempest.tests.compute import base
 class FloatingIPDetailsTestBase(object):
 
     @staticmethod
+    @utils.skip('Not supported in Y! environment')
     def setUpClass(cls):
         cls.client = cls.floating_ips_client
         cls.floating_ip = []
